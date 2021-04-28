@@ -4,7 +4,8 @@ new Vue({
         return{
             name:'Bitcoin',
             img:'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
-            changePercent: 0
-        }
+            changePercent: 0,
+            prices: [8400, 7900, 8200, 9000, 9400, 10000, 10200]     
+         }
     }
 })

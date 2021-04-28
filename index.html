@@ -15,9 +15,12 @@
             <span v-else-if="changePercent<0">👎</span>
             <span v-else>😍</span>
 
-            <span v-show="changePercent>0">😁</span>
+            <!-- <span v-show="changePercent>0">😁</span>
             <span v-show="changePercent<0">👎</span>
-            <span v-show="changePercent===0">😍</span>
+            <span v-show="changePercent===0">😍</span> -->
+            <ul>
+                <li v-for="p in prices" v-bind:key>{{p}}</li>
+            </ul>
         </h1>
 
 
