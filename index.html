@@ -9,8 +9,11 @@
 </head>
 <body>
     <div id="app">
-        <img v-bind:src="img" v-bind:alt="name">
-        <h1>{{name}}
+        <img 
+        v-on:mouseover="toogleShowPrices" 
+        v.on.mouseout="toogleShowPrices" 
+        v-bind:src="img" v-bind:alt="name">
+        <h1 v-bind:class="changePercent>0 ?'green': 'red'">{{name}}
             <span v-if="changePercent>0">😁</span>
             <span v-else-if="changePercent<0">👎</span>
             <span v-else>😍</span>
@@ -18,13 +21,22 @@
             <!-- <span v-show="changePercent>0">😁</span>
             <span v-show="changePercent<0">👎</span>
             <span v-show="changePercent===0">😍</span> -->
-            <ul>
-                <li v-for="p in prices" v-bind:key>{{p}}</li>
-            </ul>
+            <span v-on:click="toogleShowPrices">
+                {{showPrices ? '😍':'😒'}}</span>
         </h1>
-
-
+       
+        
+        <ul v-show=showPrices>
+            <!-- array de objectos -->
+            <li 
+            class='uppercase'
+            v-bind:class="{orange:p.value===price , red: p.value<price, green:p.value>price}"
+            v-for="(p,i) in  pricesWithDays" v-bind:key="p.day" >
+               {{i}}- {{p.day}} -{{p.value}}
+            </li>
+        </ul>
     </div>
+      
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="app.js"></script>
 </body>
