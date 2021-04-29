@@ -3,8 +3,10 @@ new Vue({
     data(){
         return{
             name:'Bitcoin',
+            symbol:'BTC',
             img:'https://cryptologos.cc/logos/bitcoin-btc-logo.png',
             changePercent: 1,
+            color:'f4f4f4',
             price:8400,
             /* prices: [8400, 7900, 8200, 9000, 9400, 10000, 10200]   , */
             //array de objetos
@@ -20,10 +22,23 @@ new Vue({
             showPrices:false
          }
     },
+computed:{
+title(){
+    return `${this.name} + ${this.symbol}`
+}
+},
+            /* funciones que ejecutan un codigo */
 
+    watch:{
+showPrices(newVal, oldVal){
+    console.log(newVal, oldVal);
+    
+}
+    },
     methods:{
         toogleShowPrices(){
             this.showPrices=!this.showPrices
+            this.color=this.color.split('').reverse().join('')
         }
     }
 })
