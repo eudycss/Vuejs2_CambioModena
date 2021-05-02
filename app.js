@@ -10,6 +10,8 @@ Vue.component('CoinDetail',{
     methods:{
         toogleShowPrices(){
             this.showPrices=!this.showPrices
+            this.$emit('change-color',
+           this.showPrices ? 'FF96C8': '3D3D3D')
         }
 
     },
@@ -96,10 +98,13 @@ new Vue({
             /* funciones que ejecutan un codigo */
 
  
-  /*   methods:{
-        toogleShowPrices(){
-            this.showPrices=!this.showPrices
-            this.color=this.color.split('').reverse().join('')
+    methods:{
+        updateColor(color){
+            
+            this.color= color || this.color.
+            split('').
+            reverse().
+            join('')
         }
-    } */
+    }
 })
