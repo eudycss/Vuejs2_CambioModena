@@ -27,6 +27,14 @@ Vue.component('CoinDetail',{
            return this.value/this.coin.price
         }
         },
+        created(){
+            console.log('Created CoinDetail');
+            //INformacion dinamica de la api o el servidor
+        },
+    
+        mounted() {
+            console.log('Mounted CoinDetail');
+        },
 
     template:`
     <div>
@@ -41,17 +49,17 @@ Vue.component('CoinDetail',{
     <span v-else-if="coin.changePercent<0">👎</span>
     <span v-else>😍</span>
 
-    <!-- <span v-show="changePercent>0">😁</span>
-    <span v-show="changePercent<0">👎</span>
-    <span v-show="changePercent===0">😍</span> -->
     <span v-on:click="toogleShowPrices">
         {{showPrices ? '😍':'😒'}}</span>
 </h1>
 
 <input type="number" v-model="value">
 <span>{{convertedValue}}</span>
+<slot name="text"></slot>
+<slot name="link"></slot>
 
 <ul v-show=showPrices>
+
 
 <li 
 class='uppercase'
@@ -87,17 +95,18 @@ new Vue({
             },
            
             color:'f4f4f4',
-           
-           
-            /* prices: [8400, 7900, 8200, 9000, 9400, 10000, 10200]   , */
-            //array de objetos
-            
          }
     },
+    created(){
+        console.log('Created...');
+        //INformacion dinamica de la api o el servidor
+    },
 
-            /* funciones que ejecutan un codigo */
+    mounted() {
+        console.log('Mounted...');
+    },
 
- 
+
     methods:{
         updateColor(color){
             
