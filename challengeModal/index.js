@@ -30,7 +30,7 @@ new Vue({
     data() {
         return {
 
-            title:'Titulo del modal',
+            title:'Título del modal',
             showModal: false
         }
     },
